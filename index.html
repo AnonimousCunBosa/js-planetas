@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Michroma&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <title>COSMO WEIGHT</title>
+</head>
+<body>
+    <header>
+        <section>        
+            <h1>CALCULA TU PESO EN EL SISTEMA SOLAR</h1>
+            <h2>CALCULA TU PESO <span>EN EL SISTEMA SOLAR</span></h2>
+                <p>
+                    Esplora tu masa gravitacional a traves del cosmo. Una estrapolacion fisica calibrada segun las efemeridades interplanetarias 
+                    de la Union Astronomica Internacional.
+                </p>
+        </section>
+    </header>
+    <main>
+        <aside class="columna_izquierda">
+            <section class="panel_parametros ">
+                <h2>PARÁMETROS DE EXPEDICIÓN</h2>
+                    <div>
+                        <label for="input_Masa">MASA EN LA TIERRA</label>
+                        <br>
+                        <input type="number" id="input_Masa" value="60" min="1">
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <label for="Select_Planeta">DESTINO DEL SISTEMA SOLAR</label>
+                        <br>
+                        <select id="Select_Planeta">
+                            <option value="tierra" selected>00 // TIERRA</option>
+                            <option value="mercurio">01 // MERCURIO</option>
+                            <option value="venus">02 // VENUS</option>
+                            <option value="marte">03 // MARTE</option>
+                            <option value="jupiter">04 // JUPITER</option>
+                            <option value="saturno">05 // SATURNO</option>
+                            <option value="urano">06 // URANO</option>
+                            <option value="neptuno">07 // NEPTUNO</option>
+                        </select>
+                    </div>
+                    
+                    <br>
+                    <button type="button" id="btn_Calcular" >CALCULAR PESO INTERPLANETARIO</button>
+                    <br>           
+                    <article class="bitacora">
+                        <h3>BITACORA DE VIAJE</h3>
+                        <blockquote id="Texto_bitacora">
+                            Planeta azul y verde, con una atmósfera rica en oxígeno y agua líquida. Es el hogar de la vida tal como la conocemos, con una gran diversidad de ecosistemas y especies.
+                        </blockquote>
+                    </article>
+            </section>
+        </aside>   
+
+           <section>
+                <section>
+                    <h2>RESULTADO DE SUPERFICIES</h2>
+                    <p id="titulo-planeta">TIERRA // CUNA DE LA HUMANIDAD // EL ORIGEN</p>
+                    <model-viewer id="Visor_planeta" src="modelos_3d/Tierra3d.glb" alt="Modelos3D" auto-rotate camera-controls ar ar-modes="webxr scene-viewer quick-look" environment-image="neutral" shadow-intensity="1" exposure="1"></model-viewer>
+                    <section>
+                        <label for="Texto_Resultado">PESO EQUIVALENTE EFECTIVO</label>
+                        <output id="Texto_Resultado">--KG</output>
+                        <div>
+                            <label for="Variaciones_planetas">VARIACION GRAVITACIONAL</label>
+                            <output id="Variaciones_planetas">%</output>
+                        </div>
+                    </section>
+                    <br>
+                    <label for="Texto_distancia">DISTANCIA DE VIAJE</label>
+                    <output id="Texto_distancia">--KM</output>     
+                </section>
+                <section>
+                    <h2>01 / / DIMENSIÓN</h2>
+                    <p id="Titulo_dimension"></p> 
+                    <p id="Texto_dimension"></p>
+                </section>
+                <section>
+                    <h2>02 / / SUPERFICIE</h2>
+                    <p id="Titulo_superficie"></p>
+                    <p id="Texto_superficie"></p>
+                </section>
+                <section>
+                    <h2>03 / / LUNAS</h2>
+                    <p id="Titulo_lunas"></p>
+                    <p id="Texto_lunas"></p>
+                </section>
+                <section>
+                    <h2>05 / / ATMÓSFERA</h2>
+                    <p id="Titulo_atmosfera"> </p>
+                    <p id="Texto_atmosfera"></p>
+                </section>
+                <section>
+                    <h2>04 / / Composición</h2>
+                    <p id="Titulo_composicion"></p>
+                    <p id="Texto_composicion"></p>
+                </section>
+                <section>
+                    <h2>06 / / ORBITAJE SOLAR</h2>
+                    <p id="Titulo_orbitaje"></p>
+                    <p id="Texto_orbitaje"></p>
+                </section>
+                <section>
+                    <h2>07 / / MASA Y VOLUMEN</h2>
+                    <p id="Titulo_masa_volumen"></p>
+                    <p id="Texto_masa_volumen"></p>
+                </section>
+                <section>
+                    <h2>08 / / DENSIDAD</h2>
+                    <p id="Titulo_densidad"></p>
+                    <p id="Texto_densidad"></p>
+                </section>
+                <!--Sección de métricas-->
+                <section>
+                    <div>
+                        <h2>GRAVEDAD EFECTIVA</h2>
+                        <p id="Texto_gravedad"></p>
+                    </div>
+                    <div>
+                        <h2>PERIODO DE ROTACIÓN</h2>
+                        <p id="Texto_rotacion"></p>
+                    </div>
+                    <div>
+                        <h2>AÑO ORBITAL</h2>
+                        <p id="Texto_orbital"></p>
+                    </div>
+                    <div>
+                        <h2>TEMPERATURA MEDIA</h2>
+                        <p id="Texto_temperatura"></p>
+                    </div>
+                </section>
+            </section>
+    </main>
+
+
+
+
+
+
+
+
+
+
+</body>
+<script src="script.js"></script>
+</html>

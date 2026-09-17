@@ -1,0 +1,102 @@
+/* --- TUS REGLAS ORIGINALES QUEDAN IGUAL --- */
+.michroma-regular {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.bebas-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #11131b;
+  color: #ffffff;
+}
+
+/* Ajuste para que la regla section no rompa las tarjetas internas */
+header section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #1a1c29;
+    border-radius: 5px;
+    border: 2px #11131b;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    font-size: 50px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal ;
+    color:#FFDF9F ;  
+}
+
+span {
+    color:#F78F72 ;
+}
+
+p , blockquote {
+    font-family: "Michroma", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 10px;
+}
+
+/* --- LO NUEVO PARA ORGANIZAR EL MAIN Y LAS SECCIONES --- */
+
+/* 1. Layout Principal (Main de 2 Columnas) */
+main {
+    display: grid;
+    grid-template-columns: 350px 1fr; /* Columna izquierda fija, derecha flexible */
+    gap: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+}
+
+.columna_derecha {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 2. Estilo de Cajas Individuales */
+.cuadro_caja {
+    background-color: #1a1c29;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.cuadro_caja h2 {
+    font-size: 28px; /* Tamaño adaptado para encabezados de tarjeta */
+    margin: 0 0 10px 0;
+}
+
+/* 3. Cuadrícula de tarjetas de información (2 por fila) */
+.grid_informacion {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* 4. Cuadrícula de métricas clave (4 por fila) */
+.grid_metricas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.contenedor_pesos {
+    display: flex;
+    justify-content: space-between;
+    background-color: #11131b;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
