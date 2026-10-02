@@ -12,7 +12,7 @@ body {
 }
 
 /* NAVEGACIÓN PEGADA ARRIBA */
-.navbar-simple {
+.navegacion {
   display: flex;
   justify-content: center;
   align-items: center;
