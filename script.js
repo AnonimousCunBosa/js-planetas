@@ -38,6 +38,252 @@ const Texto_rotacion = document.getElementById('Texto_rotacion');
 const Texto_orbital = document.getElementById('Texto_orbital');
 const Texto_temperatura = document.getElementById('Texto_temperatura');
 
+// APARTADO DE IDIOMAS: traducciones en español e inglés, incluidas las fichas de cada planeta.
+const traducciones = {
+  "es": {
+    "tituloPrincipal": "CALCULA TU PESO",
+    "subtituloPrincipal": "EN EL SISTEMA SOLAR",
+    "descripcionPrincipal": "Explora tu masa gravitacional a través del cosmo. Una extrapolación física calibrada según las efemérides interplanetarias de la Unión Astronómica Internacional.",
+    "expedicion": "PARÁMETROS DE EXPEDICIÓN",
+    "masa": "MASA EN LA TIERRA",
+    "destino": "DESTINO DEL SISTEMA SOLAR",
+    "calcular": "CALCULAR PESO INTERPLANETARIO",
+    "bitacora": "BITÁCORA DE VIAJE",
+    "resultadosSuperficie": "RESULTADO DE SUPERFICIES",
+    "pesoEfectivo": "PESO EQUIVALENTE EFECTIVO",
+    "variacionGravedad": "VARIACIÓN GRAVITACIONAL",
+    "distanciaViaje": "DISTANCIA DE VIAJE",
+    "dimension": "01 / / DIMENSIÓN",
+    "superficie": "02 / / SUPERFICIE",
+    "lunas": "03 / / LUNAS",
+    "composicion": "04 / / COMPOSICIÓN",
+    "atmosfera": "05 / / ATMÓSFERA",
+    "orbitaSolar": "06 / / ORBITAJE SOLAR",
+    "masaVolumen": "07 / / MASA Y VOLUMEN",
+    "densidad": "08 / / DENSIDAD",
+    "gravedad": "GRAVEDAD EFECTIVA",
+    "rotacion": "PERIODO DE ROTACIÓN",
+    "anioOrbital": "AÑO ORBITAL",
+    "temperatura": "TEMPERATURA MEDIA",
+    "planetaTierra": "00 // TIERRA",
+    "planetaMercurio": "01 // MERCURIO",
+    "planetaVenus": "02 // VENUS",
+    "planetaMarte": "03 // MARTE",
+    "planetaJupiter": "04 // JÚPITER",
+    "planetaSaturno": "05 // SATURNO",
+    "planetaUrano": "06 // URANO",
+    "planetaNeptuno": "07 // NEPTUNO"
+  },
+  "en": {
+    "tituloPrincipal": "CALCULATE YOUR WEIGHT",
+    "subtituloPrincipal": "IN THE SOLAR SYSTEM",
+    "descripcionPrincipal": "Explore your gravitational mass across the cosmos. A physical extrapolation calibrated using the International Astronomical Union's interplanetary ephemerides.",
+    "expedicion": "EXPEDITION PARAMETERS",
+    "masa": "MASS ON EARTH",
+    "destino": "SOLAR SYSTEM DESTINATION",
+    "calcular": "CALCULATE INTERPLANETARY WEIGHT",
+    "bitacora": "TRAVEL LOG",
+    "resultadosSuperficie": "SURFACE RESULTS",
+    "pesoEfectivo": "EFFECTIVE EQUIVALENT WEIGHT",
+    "variacionGravedad": "GRAVITATIONAL VARIATION",
+    "distanciaViaje": "TRAVEL DISTANCE",
+    "dimension": "01 / / DIMENSION",
+    "superficie": "02 / / SURFACE",
+    "lunas": "03 / / MOONS",
+    "composicion": "04 / / COMPOSITION",
+    "atmosfera": "05 / / ATMOSPHERE",
+    "orbitaSolar": "06 / / SOLAR ORBIT",
+    "masaVolumen": "07 / / MASS AND VOLUME",
+    "densidad": "08 / / DENSITY",
+    "gravedad": "EFFECTIVE GRAVITY",
+    "rotacion": "ROTATION PERIOD",
+    "anioOrbital": "ORBITAL YEAR",
+    "temperatura": "AVERAGE TEMPERATURE",
+    "planetaTierra": "00 // EARTH",
+    "planetaMercurio": "01 // MERCURY",
+    "planetaVenus": "02 // VENUS",
+    "planetaMarte": "03 // MARS",
+    "planetaJupiter": "04 // JUPITER",
+    "planetaSaturno": "05 // SATURN",
+    "planetaUrano": "06 // URANUS",
+    "planetaNeptuno": "07 // NEPTUNE",
+    "planets": {
+      "tierra": {
+        "log": "Blue and green planet with an atmosphere rich in oxygen and liquid water. It is home to life as we know it, with diverse ecosystems and species.",
+        "title": "EARTH // CRADLE OF HUMANITY // THE ORIGIN",
+        "distance": "0 km",
+        "dimension": "Mean equatorial diameter (100% / Earth reference value)",
+        "superficie": "Total surface area (29.2% land and 70.8% liquid water)",
+        "lunas": "The Moon (Selene / its only natural satellite)",
+        "atmosphereTitle": "DENSE AND BREATHABLE",
+        "atmosfera": "Made of nitrogen (78.1%), oxygen (20.9%), argon (0.93%) and traces of CO₂ and other gases. Standard pressure is 101.3 kPa (1 atmosphere) at sea level.",
+        "compositionTitle": "DIFFERENTIATED ROCKY PLANET",
+        "composicion": "Continental and oceanic crust, a dense silicate mantle, and a metallic core divided into a liquid outer core and solid inner core (iron 85%, silicate 15%).",
+        "orbitaSolar": "Average distance from the Sun (1 AU), orbital period of 365.25 days and average speed of 29.78 km/s",
+        "masaVolumen": "Planetary mass (100% / baseline reference value)",
+        "densidad": "The Solar System's highest average density, used as the baseline reference (100%)",
+        "gravedad": "9.807 m/s²",
+        "rotacion": "23 h 56 m 4 s (1 sidereal day)",
+        "anioOrbital": "365.25 days (1 year)",
+        "temperatura": "15 °C (global average)"
+      },
+      "mercurio": {
+        "log": "The planet closest to the Sun, with extreme temperatures. This scorching, crater-covered world has almost no atmosphere.",
+        "title": "MERCURY // THE IRON WORLD // HERMES",
+        "distance": "91.7 million km",
+        "dimension": "Mean equatorial diameter (38% of Earth's)",
+        "superficie": "Total surface area (14.7% of Earth's, about the size of Asia and Africa combined)",
+        "lunas": "No natural satellites",
+        "atmosphereTitle": "BARELY EXISTING EXOSPHERE",
+        "atmosfera": "An extremely thin layer of oxygen (42%), sodium (29%), hydrogen (22%), helium (6%) and potassium, with imperceptible pressure (10⁻¹⁴ bar).",
+        "compositionTitle": "ROCKY WITH A GIANT CORE",
+        "composicion": "Graphite-rich silicate crust, thin mantle and a large iron core that occupies about 85% of the planet's radius.",
+        "orbitaSolar": "Average distance from the Sun (0.387 astronomical units - AU)",
+        "masaVolumen": "Second-highest average density in the Solar System (98.3% of Earth's)",
+        "densidad": "Average density: 5.43 g/cm³ (98.6% of Earth's)",
+        "gravedad": "3.70 m/s²",
+        "rotacion": "58 d 15 h 30 m (1 sidereal day)",
+        "anioOrbital": "88 days (1 year)",
+        "temperatura": "167 °C (global average)"
+      },
+      "venus": {
+        "log": "A scorching world with impact craters and a dense, toxic atmosphere, extreme temperatures and crushing atmospheric pressure.",
+        "title": "VENUS // THE DENSEST HELL // APHRODITE",
+        "distance": "108.2 million km",
+        "dimension": "Mean equatorial diameter (95% of Earth's)",
+        "superficie": "Total surface area (90.2% of Earth's, dominated by volcanic plains)",
+        "lunas": "No natural satellites",
+        "atmosphereTitle": "DENSE AND TOXIC",
+        "atmosfera": "Made of carbon dioxide (96.5%), nitrogen (3.5%) and sulfuric acid clouds, with extreme pressure of 92 atm (92 times Earth's).",
+        "compositionTitle": "VOLCANIC ROCKY PLANET",
+        "composicion": "Silicate crust with volcanoes and plains, a silicate mantle and an iron-sulfur metallic core with an estimated inner radius of 3,000 km.",
+        "orbitaSolar": "Average distance from the Sun (0.723 astronomical units - AU)",
+        "masaVolumen": "Planetary mass (81.5% of Earth's; Earth is about 1.16 times larger)",
+        "densidad": "High average density (95.1% of Earth's)",
+        "gravedad": "8.87 m/s²",
+        "rotacion": "243 Earth days (retrograde rotation)",
+        "anioOrbital": "224.7 Earth days",
+        "temperatura": "437 °C to 482 °C"
+      },
+      "marte": {
+        "log": "A reddish planet with a thin atmosphere and cold temperatures. This desert world has giant volcanoes and deep canyons.",
+        "title": "MARS // THE RED PLANET // ARES",
+        "distance": "227.9 million km",
+        "dimension": "Mean equatorial diameter (53% of Earth's)",
+        "superficie": "Total surface area (28.4% of Earth's, about equal to all of Earth's land area)",
+        "lunas": "Phobos and Deimos (tiny, irregular natural satellites)",
+        "atmosphereTitle": "THIN, COLD AND CO₂-RICH",
+        "atmosfera": "Mostly carbon dioxide (95.3%), with nitrogen (2.6%), argon (1.9%) and oxygen (0.1%).",
+        "compositionTitle": "ROCKY WITH GIANT VOLCANOES",
+        "composicion": "Silicate crust with volcanoes and canyons, a silicate mantle and an iron-sulfur metallic core with an estimated inner radius of 1,700 km.",
+        "orbitaSolar": "Average distance from the Sun (1.524 astronomical units - AU)",
+        "masaVolumen": "Planetary mass (10.7% of Earth's; Earth could contain Mars 6.2 times)",
+        "densidad": "Low average density (71.3% of Earth's)",
+        "gravedad": "3.71 m/s²",
+        "rotacion": "24 h 37 m (1 sidereal day)",
+        "anioOrbital": "687 days (1 year)",
+        "temperatura": "-63 °C (global average)"
+      },
+      "jupiter": {
+        "log": "The Solar System's largest planet, with a dense atmosphere and giant storms. This gas giant has the Great Red Spot and many moons.",
+        "title": "JUPITER // THE GAS GIANT // JUPITER",
+        "distance": "778.5 million km",
+        "dimension": "Mean equatorial diameter (1,120% of Earth's / 11.2 times Earth's diameter)",
+        "superficie": "Total surface area (120.4 times Earth's); for this gas giant, measured at the 1-bar pressure level",
+        "lunas": "95 confirmed natural satellites, including the Galilean moons Io, Europa, Ganymede and Callisto. Ganymede is the Solar System's largest moon.",
+        "atmosphereTitle": "GIANT AND DENSE",
+        "atmosfera": "Mostly hydrogen (90%) and helium (10%), with traces of methane, ammonia, water vapor and other compounds. It has cloud bands and giant storms, including the Great Red Spot.",
+        "compositionTitle": "GAS AND METALLIC",
+        "composicion": "Outer hydrogen and helium layers, a metallic hydrogen mantle, and a rocky-metallic core estimated at 10-15 Earth masses.",
+        "orbitaSolar": "Average distance from the Sun (5.204 astronomical units - AU)",
+        "masaVolumen": "Planetary mass (317.8 times Earth's; Earth could fit inside 1,321 times)",
+        "densidad": "Low average density (24.1% of Earth's)",
+        "gravedad": "24.79 m/s²",
+        "rotacion": "9 h 55 m (1 sidereal day)",
+        "anioOrbital": "11.86 Earth years (4,333 Earth days)",
+        "temperatura": "-110 °C (global average)"
+      },
+      "saturno": {
+        "log": "Famous for its impressive rings and many moons. This gas giant has an atmosphere made mostly of hydrogen and helium.",
+        "title": "SATURN // THE RINGED GIANT // SATURN",
+        "distance": "1.4 billion km",
+        "dimension": "Mean equatorial diameter (914% of Earth's / 9.1 times Earth's diameter, excluding rings)",
+        "superficie": "Total surface area (83.6 times Earth's); for this gas giant, measured at the 1-bar pressure level",
+        "lunas": "146 natural satellites, including Titan and Enceladus. Titan is the Solar System's second-largest moon; Enceladus has water geysers and geological activity.",
+        "atmosphereTitle": "GASEOUS WITH COMPLEX RINGS",
+        "atmosfera": "Mostly hydrogen (96.3%) and helium (3.25%), with traces of methane, ammonia, water vapor and other compounds. It has cloud bands and storms, less intense than Jupiter's.",
+        "compositionTitle": "GAS AND ICE GIANT",
+        "composicion": "Outer hydrogen and helium layers, a metallic hydrogen mantle, and a rocky-metallic core estimated at 10-20 Earth masses.",
+        "orbitaSolar": "Average distance from the Sun (9.582 astronomical units - AU)",
+        "masaVolumen": "Planetary mass (95.2 times Earth's; Earth could fit inside 764 times)",
+        "densidad": "The Solar System's least dense planet, below water's density; average density is 12.5% of Earth's.",
+        "gravedad": "10.44 m/s²",
+        "rotacion": "10 h 33 m (1 sidereal day)",
+        "anioOrbital": "29.45 Earth years (10,759 Earth days)",
+        "temperatura": "-140 °C (global average)"
+      },
+      "urano": {
+        "log": "An icy planet with a tilted rotation axis. This giant has an atmosphere of hydrogen, helium and methane, which gives it a blue-green color.",
+        "title": "URANUS // THE ICE GIANT // URANUS",
+        "distance": "2.9 billion km",
+        "dimension": "Mean equatorial diameter (398% of Earth's / 4 times Earth's diameter)",
+        "superficie": "Total surface area (15.9 times Earth's); for this ice giant, measured at the 1-bar pressure level",
+        "lunas": "Natural satellites include Titania, Oberon, Umbriel, Ariel and Miranda; Miranda has some of the Solar System's deepest canyons and cliffs.",
+        "atmosphereTitle": "GASEOUS AND ICY",
+        "atmosfera": "Mostly hydrogen (82.5%), helium (15.2%) and methane (2.3%), which absorbs red light and gives Uranus its blue-green color. It also has faint rings and traces of water and ammonia.",
+        "compositionTitle": "GAS AND ICE GIANT",
+        "composicion": "Outer hydrogen and helium layers, a mantle of liquid water, ammonia and methane, and a rocky-metallic core estimated at 0.5 Earth masses.",
+        "orbitaSolar": "Average distance from the Sun (19.191 astronomical units - AU)",
+        "masaVolumen": "Planetary mass (14.5 times Earth's; Earth could fit inside 63 times)",
+        "densidad": "Low average density (23.0% of Earth's)",
+        "gravedad": "8.69 m/s²",
+        "rotacion": "17 h 14 m (1 sidereal day)",
+        "anioOrbital": "84.01 Earth years (30,687 Earth days)",
+        "temperatura": "-195 °C (global average)"
+      },
+      "neptuno": {
+        "log": "A blue, windy planet with extreme weather. This ice giant is known for powerful winds and storms.",
+        "title": "NEPTUNE // THE WINDY GIANT // NEPTUNE",
+        "distance": "4.5 billion km",
+        "dimension": "Mean equatorial diameter (386% of Earth's / 3.9 times Earth's diameter)",
+        "superficie": "Total surface area (15 times Earth's); for this ice giant, measured at the 1-bar pressure level",
+        "lunas": "Triton is its largest moon, with a retrograde orbit and active liquid-nitrogen geysers.",
+        "atmosphereTitle": "DYNAMIC AND DEEP BLUE",
+        "atmosfera": "Mostly hydrogen (80%), helium (19%) and methane (1.5%), which absorbs red light and gives Neptune its blue color. It has faint rings, cloud bands and storms, including the Great Dark Spot.",
+        "compositionTitle": "DENSE ICE GIANT",
+        "composicion": "A supersonic fluid mantle of water, ammonia and methane ices surrounds a solid iron-nickel and silicate core with an estimated inner radius of 13,000 km.",
+        "orbitaSolar": "Average distance from the Sun (30.07 astronomical units - AU)",
+        "masaVolumen": "Planetary mass (17.1 times Earth's; Earth could fit inside 57 times by volume)",
+        "densidad": "The densest of the gas and ice giants (29.7% of Earth's density)",
+        "gravedad": "11.15 m/s²",
+        "rotacion": "16 h 6 m (1 sidereal day)",
+        "anioOrbital": "164.8 Earth years (60,190 Earth days)",
+        "temperatura": "-200 °C (global average)"
+      }
+    }
+  }
+};
+
+// CAMBIO: aplica las traducciones desde los objetos de este archivo, sin cargar JSON externo.
+let idiomaActual = 'es';
+let traduccionesActivas = traducciones.es;
+function cambiarIdioma(idioma) {
+    traduccionesActivas = traducciones[idioma] || traducciones.es;
+    idiomaActual = idioma in traducciones ? idioma : 'es';
+    document.documentElement.lang = idiomaActual;
+    document.querySelectorAll('[data-texto]').forEach(elemento => {
+        const texto = traduccionesActivas[elemento.dataset.texto];
+        if (texto) elemento.textContent = texto;
+    });
+    localStorage.setItem('idioma', idiomaActual);
+    // Si ya hay resultados, vuelve a calcular para mostrarlos en el idioma elegido.
+    if (Texto_Resultado.innerText !== '--KG') btn_Calcular.click();
+}
+
+document.querySelectorAll('[data-language]').forEach(boton => {
+    boton.addEventListener('click', () => cambiarIdioma(boton.dataset.language));
+});
+cambiarIdioma(localStorage.getItem('idioma') || 'es');
 
 //CALCULADORA Y SU EJECUCION
 btn_Calcular.addEventListener('click', function() {
@@ -435,8 +681,35 @@ let textoTemperatura = '' ;
     Texto_orbital.innerText = textoOrbital;
     Texto_temperatura.innerText = textoTemperatura;
 
+    // CAMBIO: reemplaza los textos generados para el planeta con sus equivalentes en inglés.
+    // Las claves incluyen cada texto variable de los resultados y las métricas.
+    if (idiomaActual === 'en' && traduccionesActivas.planets?.[planetaSeleccionado]) {
+        const ingles = traduccionesActivas.planets[planetaSeleccionado];
+        Texto_bitacora.innerText = ingles.log;
+        titulo_planeta.innerText = ingles.title;
+        Texto_dimension.innerText = ingles.dimension;
+        Texto_superficie.innerText = ingles.surface;
+        Texto_lunas.innerText = ingles.moons;
+        Titulo_lunas.innerText = ({tierra:'1 MOON', mercurio:'0 MOONS', venus:'0 MOONS', marte:'2 MOONS', jupiter:'95 MOONS', saturno:'146 MOONS', urano:'28 MOONS', neptuno:'16 MOONS'})[planetaSeleccionado];
+        Titulo_composicion.innerText = ingles.compositionTitle;
+        Texto_composicion.innerText = ingles.composition;
+        Titulo_atmosfera.innerText = ingles.atmosphereTitle;
+        Texto_atmosfera.innerText = ingles.atmosphere;
+        Texto_orbitaje.innerText = ingles.orbit;
+        Texto_masa_volumen.innerText = ingles.massVolume;
+        Texto_densidad.innerText = ingles.density;
+        Texto_gravedad.innerText = ingles.gravity;
+        Texto_rotacion.innerText = ingles.rotation;
+        Texto_orbital.innerText = ingles.orbitalYear;
+        Texto_temperatura.innerText = ingles.temperature;
+        Texto_distancia.innerText = ingles.distance;
+        titulo_planeta.innerText = ingles.title;
+    }
+
 
 });
+
+
 
 
 

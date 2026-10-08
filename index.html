@@ -11,11 +11,16 @@
 <body>
     <nav class="navegacion">
         <h1 class="logo-central">COSMO WEIGHT</h1>
+        <!-- CAMBIO: selector para alternar entre los archivos de idioma es.json y en.json. -->
+        <div class="selector-idioma" aria-label="Language">
+            <button type="button" data-language="es">ES</button>
+            <button type="button" data-language="en">EN</button>
+        </div>
     </nav>
     <div class="app">
         <header class="card header">        
-            <h2>CALCULA TU PESO <span>EN EL SISTEMA SOLAR</span></h2>
-            <p>
+            <h2><span data-texto="tituloPrincipal">CALCULA TU PESO</span> <span data-texto="subtituloPrincipal">EN EL SISTEMA SOLAR</span></h2>
+            <p data-texto="descripcionPrincipal">
                 Explora tu masa gravitacional a través del cosmo. Una extrapolación física calibrada según las efemérides interplanetarias de la Unión Astronómica Internacional.
             </p>
         </header>
@@ -23,30 +28,30 @@
         <main class="main">
             <aside>
                 <section class="card">
-                    <h2>PARÁMETROS DE EXPEDICIÓN</h2>
+                    <h2 data-texto="expedicion">PARÁMETROS DE EXPEDICIÓN</h2>
                     <div>
-                        <label for="input_Masa">MASA EN LA TIERRA</label>
+                        <label for="input_Masa" data-texto="masa">MASA EN LA TIERRA</label>
                         <input type="number" id="input_Masa" value="60" min="1">
                     </div>
                     <br>
                     <div>
-                        <label for="Select_Planeta">DESTINO DEL SISTEMA SOLAR</label>
+                        <label for="Select_Planeta" data-texto="destino">DESTINO DEL SISTEMA SOLAR</label>
                         <select id="Select_Planeta">
-                            <option value="tierra" selected>00 // TIERRA</option>
-                            <option value="mercurio">01 // MERCURIO</option>
-                            <option value="venus">02 // VENUS</option>
-                            <option value="marte">03 // MARTE</option>
-                            <option value="jupiter">04 // JUPITER</option>
-                            <option value="saturno">05 // SATURNO</option>
-                            <option value="urano">06 // URANO</option>
-                            <option value="neptuno">07 // NEPTUNO</option>
+                            <option value="tierra" selected data-texto="planetaTierra">00 // TIERRA</option>
+                            <option value="mercurio" data-texto="planetaMercurio">01 // MERCURIO</option>
+                            <option value="venus" data-texto="planetaVenus">02 // VENUS</option>
+                            <option value="marte" data-texto="planetaMarte">03 // MARTE</option>
+                            <option value="jupiter" data-texto="planetaJupiter">04 // JUPITER</option>
+                            <option value="saturno" data-texto="planetaSaturno">05 // SATURNO</option>
+                            <option value="urano" data-texto="planetaUrano">06 // URANO</option>
+                            <option value="neptuno" data-texto="planetaNeptuno">07 // NEPTUNO</option>
                         </select>
                     </div>
                     <br>
-                    <button type="button" id="btn_Calcular">CALCULAR PESO INTERPLANETARIO</button>
+                    <button type="button" id="btn_Calcular" data-texto="calcular">CALCULAR PESO INTERPLANETARIO</button>
                     <br><br>        
                     <article>
-                        <h3>BITÁCORA DE VIAJE</h3>
+                        <h3 data-texto="bitacora">BITÁCORA DE VIAJE</h3>
                         <blockquote id="Texto_bitacora">
                             Planeta azul y verde, con una atmósfera rica en oxígeno y agua líquida.
                         </blockquote>
@@ -56,20 +61,20 @@
 
             <section class="col-right">
                 <article class="card">
-                    <h2>RESULTADO DE SUPERFICIES</h2>
+                    <h2 data-texto="resultadosSuperficie">RESULTADO DE SUPERFICIES</h2>
                     <p id="titulo-planeta">TIERRA // CUNA DE LA HUMANIDAD // EL ORIGEN</p>                    
                     <model-viewer id="Visor_planeta" src="modelos_3d/Tierra3d.glb" auto-rotate camera-controls></model-viewer>                   
                     <div class="results-bar">
                         <div>
-                            <label for="Texto_Resultado">PESO EQUIVALENTE EFECTIVO</label>
+                            <label for="Texto_Resultado" data-texto="pesoEfectivo">PESO EQUIVALENTE EFECTIVO</label>
                             <output id="Texto_Resultado">--KG</output>
                         </div>
                         <div>
-                            <label for="Variaciones_planetas">VARIACIÓN GRAVITACIONAL</label>
+                            <label for="Variaciones_planetas" data-texto="variacionGravedad">VARIACIÓN GRAVITACIONAL</label>
                             <output id="Variaciones_planetas">%</output>
                         </div>
                         <div>
-                            <label for="Texto_distancia">DISTANCIA DE VIAJE</label>
+                            <label for="Texto_distancia" data-texto="distanciaViaje">DISTANCIA DE VIAJE</label>
                             <output id="Texto_distancia">--KM</output> 
                         </div>
                     </div>
@@ -78,42 +83,42 @@
                 <!-- TARJETAS SECUNDARIAS -->
                 <div class="info-grid">
                     <article class="card">
-                        <h2>01 / / DIMENSIÓN</h2>
+                        <h2 data-texto="dimension">01 / / DIMENSIÓN</h2>
                         <p id="Titulo_dimension"></p> 
                         <p id="Texto_dimension"></p>
                     </article>
                     <article class="card">
-                        <h2>02 / / SUPERFICIE</h2>
+                        <h2 data-texto="superficie">02 / / SUPERFICIE</h2>
                         <p id="Titulo_superficie"></p>
                         <p id="Texto_superficie"></p>
                     </article>
                     <article class="card">
-                        <h2>03 / / LUNAS</h2>
+                        <h2 data-texto="lunas">03 / / LUNAS</h2>
                         <p id="Titulo_lunas"></p>
                         <p id="Texto_lunas"></p>
                     </article>
                     <article class="card">
-                        <h2>04 / / COMPOSICIÓN</h2>
+                        <h2 data-texto="composicion">04 / / COMPOSICIÓN</h2>
                         <p id="Titulo_composicion"></p>
                         <p id="Texto_composicion"></p>
                     </article>
                     <article class="card">
-                        <h2>05 / / ATMÓSFERA</h2>
+                        <h2 data-texto="atmosfera">05 / / ATMÓSFERA</h2>
                         <p id="Titulo_atmosfera"></p>
                         <p id="Texto_atmosfera"></p>
                     </article>
                     <article class="card">
-                        <h2>06 / / ORBITAJE SOLAR</h2>
+                        <h2 data-texto="orbitaSolar">06 / / ORBITAJE SOLAR</h2>
                         <p id="Titulo_orbitaje"></p>
                         <p id="Texto_orbitaje"></p>
                     </article>
                     <article class="card">
-                        <h2>07 / / MASA Y VOLUMEN</h2>
+                        <h2 data-texto="masaVolumen">07 / / MASA Y VOLUMEN</h2>
                         <p id="Titulo_masa_volumen"></p>
                         <p id="Texto_masa_volumen"></p>
                     </article>
                     <article class="card">
-                        <h2>08 / / DENSIDAD</h2>
+                        <h2 data-texto="densidad">08 / / DENSIDAD</h2>
                         <p id="Titulo_densidad"></p>
                         <p id="Texto_densidad"></p>
                     </article>
@@ -122,19 +127,19 @@
                 <!-- MÉTRICAS RÁPIDAS -->
                 <div class="metrics-grid">
                     <article class="card">
-                        <h2>GRAVEDAD EFECTIVA</h2>
+                        <h2 data-texto="gravedad">GRAVEDAD EFECTIVA</h2>
                         <p id="Texto_gravedad"></p>
                     </article>
                     <article class="card">
-                        <h2>PERIODO DE ROTACIÓN</h2>
+                        <h2 data-texto="rotacion">PERIODO DE ROTACIÓN</h2>
                         <p id="Texto_rotacion"></p>
                     </article>
                     <article class="card">
-                        <h2>AÑO ORBITAL</h2>
+                        <h2 data-texto="anioOrbital">AÑO ORBITAL</h2>
                         <p id="Texto_orbital"></p>
                     </article>
                     <article class="card">
-                        <h2>TEMPERATURA MEDIA</h2>
+                        <h2 data-texto="temperatura">TEMPERATURA MEDIA</h2>
                         <p id="Texto_temperatura"></p>
                     </article>
                 </div>
@@ -142,6 +147,8 @@
         </main>
     </div>
 
+    <!-- CAMBIO: las traducciones se cargan desde JSON mediante fetch; abrir con servidor local. -->
     <script src="script.js"></script>
 </body>
 </html>
+
